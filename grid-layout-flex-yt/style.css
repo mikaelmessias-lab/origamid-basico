@@ -1,0 +1,241 @@
+body, ul, li, p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+}
+
+body {
+  margin-bottom: 100px;
+  color: #1f1f1f;
+  background: rgba(255, 99, 71, 0.2);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  background: #1d1e20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px; 
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+
+section {
+  margin: 0 auto 40px auto;
+}
+
+
+.flex img,
+.grid1 img,
+.grid2 img {
+  opacity: 1;
+  transition: opacity 01s;
+}
+
+.flex img:hover,
+.grid1 img:hover,
+.grid2 img:hover {
+  opacity: 0.8;
+}
+
+.flex > div,
+.grid1 > div,
+.grid3 > div {
+  transition: transform 1s;
+}
+
+.flex > div:hover,
+.grid1 > div:hover,
+.grid3 > div:hover {
+  transform: scale(0.98);
+}
+
+/* CSS Flexbox */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.flex > div {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.flex > div > p {
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+
+/* SECTION GRID 1 */
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 800px;
+  padding: 10px;
+  grid-gap: 20px;
+}
+
+/* Seleciona os três primeiros elementos */
+.grid1 > div:nth-child(-n+3) > p {
+  text-align: center;
+  padding: 10px;
+}
+
+.grid1 > div > p {
+  background-color: #1d1e20;
+  color: #fff;
+}
+
+.grid1 > div:nth-child(n + 4) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+  background-color: #1d1e20;
+}
+
+/* Seleciona todos os elementos a partir do quarto */
+.grid1 > div:nth-child(n + 4) > p {
+  background-color: initial;
+}
+
+.grid1 > div.anuncio {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  border-top: 10px solid tomato;
+  text-align: center;
+  display: block;
+  background-color: initial;
+}
+
+.grid1 > div.anuncio > p {
+  color: #1f1f1f;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .grid1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid1 > div:nth-child(n + 4) {
+    display: block;
+  }
+  
+  .grid1 p {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .grid1 > div.anuncio {
+    grid-column: auto;
+    grid-row: auto;
+    order: -1;
+  }
+}
+
+
+/* SECTION GRID 2 */
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: 20px;
+  max-width: 800px;
+  padding: 10px;
+}
+
+.sidebar > div {
+  margin-bottom: 10px;
+}
+
+.sidebar > div > p {
+  text-align: center;
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: flex;
+    overflow: scroll;
+  }
+
+  .sidebar > div {
+    flex: 1 0 200px;
+    margin: 0 auto;
+  }
+}
+
+
+/* SECTION GRID 3 */
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  max-width: 800px;
+  padding: 10px;
+}
+
+.grid3-item:nth-child(1) {
+  grid-row: 1 / 3;
+}
+
+.grid3-item {
+  display: grid;
+}
+
+.grid3-item img {
+  grid-column: 1;
+  grid-row: 1/3;
+  align-self: stretch;
+}
+
+.grid3-item p {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  color: white;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: stretch;
+}
